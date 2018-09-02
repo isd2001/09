@@ -1,0 +1,45 @@
+kkh.mokingu.com
+해당 프로젝트 우클릭 -> build path -> lib 다시 경로 확인
+
+
+# 프로그램에서 DB를 연동해서 작업을 해야된다면? - JDBC (java database connectivity) #
+  기본 네트워크 프로그램사용하는것과 비슷하다.
+  DB 서버에 연결해서 필요한 SQL문을 send 하고 작업결과를 receive 받고 해제 하시면 된다.
+─────────────────────────────────────────────────────
+# Driver 연동 ##
+ - DB에 connect를 하기위해선, 해당 DB에 접속할수 있는 드라이버클래스가 포함된
+  라이브러기가 있어야만 가능함.
+   - 1. JRE/lib/ext 에 추가
+   - 2. 프로그램에 external Jar 로 추가 (웹앱의 경우 WEB-INF/lib )
+
+  (자바프로젝트는 둘다 됨  / 웹앱같은 경우는 1번만 됨. WHY?)
+  - DriverManager 를 이용해서 Connect 를 할때, 해당 DB에 접속할수 있는 드라이버 객체가
+  로드되어야만 연결이 되게 되있다. 예전 버전에는 이걸 수동으로 로딩을 했어야 했음.
+  자바 버전이 올라가면서, 프로그램이 가동될때 연결되어있는 라이브러리들의 정보를 토대로 Driver가 
+  자동으로 로딩이 되게 버전 업이 됬다.
+  톰캣의 경우는 DB 커넥션 드라이버용 클래스 검색을  JRE/lib/ext  +  was/lib 이 두곳에만 함.
+  WEB-INF/lib 에 라이브러리를 넣어두었다면, ServletContextListener 를 이용해서
+  서버켜질때 추가로 로딩이 일어나게 trigger 처리 해두면 된다.
+
+   try {
+ 	Class.forName("oracle.jdbc.driver.OracleDriver");
+   } catch(Exception e) {
+	e.printStackTrace();
+   }
+		
+ 
+# PreparedStatement #
+ - DB 에 전달해야될 명령문을 String 으로 작성하다보면 데이터 설정하기가 번거롭다.
+ 예를 들어 문자 데이터 처리의 경우, '' 로 묶어서 데이터를 표기하다보니 처리가 힘들다.
+ PreparedStatement 객체는 데이터 처리 부분을 ? 로 처리해두고, 차후에 데이터 설정시 해당 타입에 맞춰 데이터 표기가
+ 일어나게 된다.
+
+
+
+
+
+
+
+
+
+

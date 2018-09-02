@@ -1,0 +1,16 @@
+ * 실행용 JAR(자바class압축파일) 만들기 *
+ main을 가지고 있는 .class 파일 하나로 프로그램이 돌아가지 않고,
+ 여러 .class 파일들이 연계되서 작동해야 되는 프로그램이라면,
+ 프로그램이 가동되는데 있어서 필요한 .class 파일을 묶어서 압축시켜야 한다.
+ 
+ 1. main 을 가진 class 는 public 을 설정해야 된다.
+   ( public class XXXXXX 로 설계  )
+ 2. 압축에 필요한 .class 파일들을 모아서 
+             어딘가의 디렉터리에 넣어두시고, 
+ 3. 해당 디렉터리로 cmd에서 cd 명령어 써서 이동 후
+
+ 4. jar cfe game.jar  Source07_Obejct   *.class
+            만들파일   실행클래스명    
+ 
+ 5. .class 단독실행은   java  클래스명
+    .jar 압축파일 실행은   java -jar [실행시킬 jar]

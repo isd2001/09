@@ -1,0 +1,21 @@
+IDE ? (Integrated Development Environment, IDE)
+문법적인 내용들이 어느정도 살펴봐서
+실제 제공되는 객체들을 활용해서 프로그램을 만들어 나가는 연습을 할텐데,
+
+editplus / notepad++  같은 텍스트편집기 로는 번거러움이 너무 많다.
+보통 실제 개발을 할때는 IDE 를 사용하는데,
+자바 개발에는 Eclipse / netBeans / IntelliJ 같은 것들이 많이 사용된다.
+
+Eclipse 가 가장 기본 IDE로 사용되니까, 이걸로 작업부터 해보자.
+
+www.eclipse.org  / 가셔서. installer 받으시고
+   맨위의 Java Developer 용 install~
+
+==========================================================
+툴 사용법 #
+  - 워크스페이스(작업용폴더) 지정후 실행하시고
+
+  - 바로 코드를 작성할수 있는건 아니고, 
+   Project 생성 이후, 작업을 할수 있다. (프로젝트는 java project 로).
+
+

@@ -1,0 +1,37 @@
+
+	# Git - 버전관리 프로그램 의 하나 # 
+	- git 을 이용해서 프로그램 만드는 과정을 저장해보려고 한다.
+	- 원래 사용 하려면 , 설치를 해야되는데 , 이클립스에는 별도 설치 과정없이도 , 사용할수있다
+	
+	프로그램을 만들어내는 방식을 좀 다르게 해야 한다.
+
+	- 최초로 사용하는 거라면 우측상단의 [open perspective] 눌러서 git용 intertace 로 들어간 다음
+	  create a new git repositroy 선택 /  디렉터리 설정을 워크스페이스 내부로 설정해서 만들
+	  프로젝트 명으로 새폴더 생성해서 결정  (ex > gamegit)
+
+	- 원래 ee interface 로 돌아와서 dynamic web 프로젝트를 만드는데,
+	  프로젝트 명 적고 , 위치를 위 단계에서 만든 디렉으로 설정을 해야된다.
+  	  (만들 프로젝트명과 다른곳, 다른 이름으로 생성을 했다면)
+
+	- 프로그램 만들어나가다 , 복구 지점을 잡고 싶다면 (하나의 기능이 완성되면 , 새로운걸 시도전)
+	  프로젝트 우클릭 team > commit > unstaged changed 의 파일을 staged 로 이동후 >
+	  커밋 메세지 적고 commit
+
+	- 복구가 필요할때 프로젝트 우클릭 show in history 띄워서 버전 우클릭 reset > hard (soft/mix는 일단 배제)
+
+	# GitHub - git 원격 저장소 #
+
+	- local 에 있는 git repository 를 원격 저장소에 백업 및 저장할수 있게 지원하는 서비스
+	  github.com 으로 들어가서 가입 후 사용.
+
+	- 가입 후 , create a repository (원격저장소 / 백업) 메일인증이 된 유저만 사용 가능
+	- 생성 후 성공 했다면 , 저장소에 웹주소가 달림 ex>>https://github.com/isd2001/exer02.git
+	  이걸 카피 후에 , 이클립스 에서 , 프로젝트 우클릭 team > push !!!
+	
+	(github에 올려둔 repositroy 르 받아서 작업하려면..??)
+	- git interface 를 활성화 한 다음 / clone a repository / hub에 있는걸 local 로 다운 ..
+	- ee interface로 변경 > import
+
+	이후부터는 local 과 hub 가 연동되고 있기 때문에
+	작업 끝난 쪽에서는 push / 작업 받아야될땐 pull
+	

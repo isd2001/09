@@ -1,0 +1,75 @@
+## VHD 세팅 ##
+   window+r → diskmgmt.msc → E: 우클릭 볼륨축소 →
+   → 102400 MB 로 설정 → 만들어진 볼륨에 우클릭 →
+   새단순볼륨 클릭 → 다음,다음,, → 마침
+
+   공유폴더(\\192.168.10.27) \win10 폴더에 접근하셔서
+   win10.zip 파일이 있는데, 이걸 복사해서 (ctrl+c) 
+   위에서 만든 새볼륨에 다운 (ctrl+v)
+
+   다운이 완료되신분들은, 이걸 압축해제를 진행..!
+   원본압축파일은 삭제 (해제시킨 win10.vhd만 두고)
+=======================================================
+ 메인 OS
+ 1. cmd를 우클릭 후 관리자 권한으로 실행 ,
+ 2. cmd> bcdedit /copy {current} /d "windows_10"
+ 3. 생성된걸 일단 카피 {ca5a5b0e-536d-11e8-94d2-956642373bd9}
+ 4. bcdedit /set {copy한 id값} device VHD=[드라이브문자:]\vhd경로
+    예#
+     bcdedit /set {ca5a5b0e-536d-11e8-94d2-956642373bd9} device VHD=[G:]\win10.vhd
+ 5. bcdedit /set {copy한 id값} osdevice VHD=[드라이브문자:]\vhd경로
+    예#
+     bcdedit /set {ca5a5b0e-536d-11e8-94d2-956642373bd9} osdevice VHD=[G:]\win10.vhd
+ 6. exit
+
+ 7. win+r  → diskmgmt.msc → 만들었던 볼륨 우클릭 → 문자변경 들어가서 문자삭제
+
+ 8. win+r → msconfig → 부팅탭 → 시간을 5초 정도로 설정
+
+/*
+ 원래OS로 접속해서 해당 PC IP주소를 확인 
+ cmd >  ipconfig
+
+*/
+ 부팅모드 변환해서 새로만든 걸로 부팅이후,,
+ 암호 >  P@ssw0rd
+   
+ 9. cmd 관리자모드로 (옵션)
+   bcdedit /set description "ncs 15기"
+
+# VHD 설정후 네트워크 연결에 문제가 있다?
+  ▷ 어댑터 옵션 변경
+  ▷ 기기 클릭   ▷ 속성 변경   ▷ 인터넷 프로토콜 버전 4 속성 
+  ▷ IP 주소 사용 체크
+  ▷ IP 주소를 고정주시는데,  HOST OS의 IP address 그대로 부여
+  ▷ 서브넷 마스트 255.255.255.0
+  ▷ 게이트 192.168.10.254
+  ▷ 기본 DNS : 168.126.63.1
+  ▷ 보조 DNS : 168.126.63.2
+
+==============================================================
+해당 OS에 JDK 설치 java.oracle.com [1.8.171 version ] 
+   
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

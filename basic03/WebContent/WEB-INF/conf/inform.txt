@@ -1,0 +1,3 @@
+appName=study
+developer=mock
+from=2018.08.24

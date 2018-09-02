@@ -1,0 +1,36 @@
+## WindowBuilder ?? ##
+  GUI 구축을 직접 코드로 작성해야되는건 아니다. 
+  여러가지 툴이 있고, eclipse IDE 도 지원을 하고 있다.
+
+  기본버전은 설치가 안되있고, plug-in 설치를 해야지만 기능을 사용할수 있다.
+  (구글이나 네이버 서치엔진을 사용해서 검색을 하시고 링크를 타고 이동)
+  http://www.eclipse.org/windowbuilder/
+
+  다운로드 >> 버전 링크 >> url 카피
+
+  http://download.eclipse.org/windowbuilder/WB/integration/4.8/
+
+  이클립스 에서 help >>> install new software 
+  work with 에 위 url를 paste .! <enter>
+
+  플러그인 설치 후 재시작 ☞
+
+## WindowBuilder 사용법 ##
+
+  → 만들고자 하는 타입을 extends 걸어둔 후,
+  → package explorer 에서 우클릭 후 
+           open with window builder 선택
+  → 아래 탭 부분에서, [Source] [Design] 이 있는데 
+    [Design] 눌러서 변경..!
+
+   (※ 만들고자 하는 크기를 setSize 코드설정 이후 배치하는게 좀 더 쉬운 배치가 가능함)
+
+
+
+
+
+
+
+
+
+

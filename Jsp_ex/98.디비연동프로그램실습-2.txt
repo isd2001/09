@@ -1,0 +1,63 @@
+# 웹 앱 구축 #
+ - 목적 : 미정
+ - 이제까지는 전부 비회원 기반의 어플리케이션을 구축했는데,
+   이번에는 회원 기반의 어플리케이션을 구축해보자.
+
+ 4가지 기능을 구축해 오시면 된다.
+ - 회원가입 
+   (필요한 정보들을 받아서, DB에 insert 처리 / DAO 객체 설계해서 )
+ - 회원인증  (로그인)
+   (이전에 인증을 구축하긴 했는데, 보안문자 일치하면 인증해주었는데,
+   이 앱은 사용자로부터 가입시 사용했던 아이디와 비밀번호를 전달받아서, 그 데이터가 DB에 존재하면
+   그때 인증 처리)
+ - 비밀번호수정 (인증된 상태에서만 쓸수 있는 서비스)
+   현재 비밀번호와, 변경시킬비밀번호 2개를 입력받아서,
+   기존에 있는 그 데이터의 비밀번호를 update 
+ - 인증해제  (로그아웃)
+───────────────────────────────────────────────
+테이블 설계
+create table account (
+   id varchar2(60) not null,
+   pass varchar2(60) not null,
+   name varchar2(60) not null,
+   gender varchar2(30) not null,
+
+   constraint accrule_01 primary key(id),
+   constraint accrule_02 check (gender in('M','F') )
+);
+-- not null 은 check rule 이 아닌 컬럼 설계시 지정 가능.
+
+create table loginlog (
+   actor varchar2(60) not null,
+   time date not null,
+
+   constraint logrule_01 foreign key (actor) references account(id) 
+)
+───────────────────────────────────────────────
+   회원가입처리하는데 2페이지  (입력form을 가진 JSP / 액션을 처리할 페이지 )
+      - id는 무조건 영문+숫자(4~12)만 가능 / name은 한글로만.. 공백없이 
+
+   인증처리하는데 2페이지  (입력form을 가진 JSP / 액션을 처리할 페이지)
+   비밀번호변경처리하는데 2페이지 (   "       )
+   인증해제하는데 1페이지 
+   + 웰컴페이지 
+───────────────────────────────────────────────
+   DAO 2개 따로..
+   AccountDao - int addData(.......)  / 
+              - Map getDataById(String id) /
+              - int setPassword(String id, String pass) 
+
+   LoginLogDao - 로그기록 저장하는 메서드
+               - 가장최근의 로그기록을 가져오는 메서드 by Id
+
+───────────────────────────────────────────────
+           
+ 
+
+
+
+
+ 
+
+
+
